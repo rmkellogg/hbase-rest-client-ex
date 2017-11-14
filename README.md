@@ -2,10 +2,23 @@
 Demonstration of using Apache HBase REST Client and Apache Maven Bill-of-Materials (BOM).
 
 Use of the HBase supplied REST Client pulls in excessive transitive dependencies.  The sample 
-application shown how to use the Bill-of-Materials (BOM) feature within Apache Maven to 
-reduce the number of dependencies substantially thereby reducing conflicts.
+application shows how to use the Apache Maven Bill-of-Materials (BOM) feature to reduce the 
+number of dependencies substantially thereby reducing conflicts.
 
-Within your client application, the following needs to be added to your pom.xml:
+If you were to use the following directly, you would pull in 146 dependencies.
+
+```
+<dependencies>
+	<!-- Apache HBase REST Client -->
+	<dependency>
+		<groupId>org.apache.hbase</groupId>
+		<artifactId>hbase-rest</artifactId>
+		<version>2.0.0-alpha4</version>
+	</dependency>
+</dependencies>
+```
+
+If you use the Apache Maven Bill-of-Materials, the number is reduced to 21.
 
 ```
 <dependencyManagement>
@@ -25,6 +38,7 @@ Within your client application, the following needs to be added to your pom.xml:
 	<dependency>
 		<groupId>org.apache.hbase</groupId>
 		<artifactId>hbase-rest</artifactId>
+		<!-- No version specified here -->
 	</dependency>
 </dependencies>
 ```
