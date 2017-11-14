@@ -43,3 +43,10 @@ If you use the Apache Maven Bill-of-Materials, the number is reduced to 21.
 </dependencies>
 ```
 
+Use the following to install the pom.xml found in the hbase-rest-client-bom folder:
+
+```
+mvn install:install-file -DgroupId=org.apache.hbase -DartifactId=hbase-rest-client-bom -Dpackaging=pom -Dversion=2.0.0-alpha4 -Dfile=pom.xml
+```
+
+
