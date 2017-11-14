@@ -7,6 +7,7 @@ reduce the number of dependencies substantially thereby reducing conflicts.
 
 Within your client application, the following needs to be added to your pom.xml:
 
+```
 <dependencyManagement>
 	<dependencies>
 		<dependency>
@@ -26,5 +27,5 @@ Within your client application, the following needs to be added to your pom.xml:
 		<artifactId>hbase-rest</artifactId>
 	</dependency>
 </dependencies>
-
+```
 
