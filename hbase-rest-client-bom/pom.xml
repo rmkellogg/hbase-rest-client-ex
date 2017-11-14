@@ -1,0 +1,349 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <!--
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+  -->
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.apache.hbase</groupId>
+	<artifactId>hbase-rest-client-bom</artifactId>
+	<version>2.0.0-alpha4</version>
+	<packaging>pom</packaging>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.hbase</groupId>
+				<artifactId>hbase-rest</artifactId>
+				<version>2.0.0-alpha4</version>
+				<exclusions>	
+					<!-- Apache Avro -->
+					<exclusion>
+						<artifactId>avro</artifactId>
+						<groupId>org.apache.avro</groupId>
+					</exclusion>
+
+					<!-- Apache Commons BeanUtils -->
+					<exclusion>
+						<artifactId>commons-beanutils-core</artifactId>
+						<groupId>commons-beanutils</groupId>
+					</exclusion>
+
+					<!-- Apache Commons CLI -->
+					<exclusion>
+						<artifactId>commons-cli</artifactId>
+						<groupId>commons-cli</groupId>
+					</exclusion>
+
+					<!-- Apache Commons Codec -->
+					<exclusion>
+						<artifactId>commons-codec</artifactId>
+						<groupId>commons-codec</groupId>
+					</exclusion>
+
+					<!-- Apache Commons Collections 4 -->
+					<exclusion>
+						<artifactId>commons-collections4</artifactId>
+						<groupId>org.apache.commons</groupId>
+					</exclusion>
+
+					<!-- Apache Commons Compress -->
+					<exclusion>
+						<artifactId>commons-compress</artifactId>
+						<groupId>org.apache.commons</groupId>
+					</exclusion>
+					
+					<!-- Apache Commons Crypto -->
+					<exclusion>
+						<artifactId>commons-crypto</artifactId>
+						<groupId>org.apache.commons</groupId>
+					</exclusion>
+
+					<!-- Apache Commons Digester -->
+					<exclusion>
+						<artifactId>commons-digester</artifactId>
+						<groupId>commons-digester</groupId>
+					</exclusion>
+
+					<!-- Apache Commons HttpClient -->
+					<exclusion>
+						<artifactId>commons-httpclient</artifactId>
+						<groupId>commons-httpclient</groupId>
+					</exclusion>
+					
+					<!-- Apache Commons IO -->
+					<exclusion>
+						<artifactId>commons-io</artifactId>
+						<groupId>commons-io</groupId>
+					</exclusion>
+
+					<!-- Apache Commons Math 3 -->
+					<exclusion>
+						<artifactId>commons-math3</artifactId>
+						<groupId>org.apache.commons</groupId>
+					</exclusion>
+
+					<!-- Apache Commons Net -->
+					<exclusion>
+						<artifactId>commons-net</artifactId>
+						<groupId>commons-net</groupId>
+					</exclusion>
+					
+					<!-- Apache Curator -->
+					<exclusion>
+						<artifactId>curator-framework</artifactId>
+						<groupId>org.apache.curator</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>curator-client</artifactId>
+						<groupId>org.apache.curator</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>curator-recipes</artifactId>
+						<groupId>org.apache.curator</groupId>
+					</exclusion>
+
+					<!-- Apache Directory Server -->
+					<exclusion>
+						<artifactId>apacheds-kerberos-codec</artifactId>
+						<groupId>org.apache.directory.server</groupId>
+					</exclusion>
+
+					<!-- Apache Hadoop -->
+					<exclusion>
+						<artifactId>hadoop-mapreduce-client-app</artifactId>
+						<groupId>org.apache.hadoop</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hadoop-mapreduce-client-common</artifactId>
+						<groupId>org.apache.hadoop</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hadoop-hdfs</artifactId>
+						<groupId>org.apache.hadoop</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hadoop-distcp</artifactId>
+						<groupId>org.apache.hadoop</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hadoop-mapreduce-client-core</artifactId>
+						<groupId>org.apache.hadoop</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hadoop-annotations</artifactId>
+						<groupId>org.apache.hadoop</groupId>
+					</exclusion>
+
+					<!-- Apache HBase -->
+					<exclusion>
+						<artifactId>hbase-mapreduce</artifactId>
+						<groupId>org.apache.hbase</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hbase-server</artifactId>
+						<groupId>org.apache.hbase</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hbase-hadoop2-compat</artifactId>
+						<groupId>org.apache.hbase</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hbase-hadoop-compat</artifactId>
+						<groupId>org.apache.hbase</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>hbase-shaded-netty</artifactId>
+						<groupId>org.apache.hbase.thirdparty</groupId>
+					</exclusion>
+
+					<!-- Apache Htrace -->
+					<exclusion>
+						<artifactId>htrace-core</artifactId>
+						<groupId>org.apache.htrace</groupId>
+					</exclusion>
+
+					<!-- Apache Yetus -->
+					<exclusion>
+						<artifactId>audience-annotations</artifactId>
+						<groupId>org.apache.yetus</groupId>
+					</exclusion>
+
+					<!-- Apache Zookeeper -->
+					<exclusion>
+						<artifactId>zookeeper</artifactId>
+						<groupId>org.apache.zookeeper</groupId>
+					</exclusion>
+
+					<!-- Dropwizard Metrics -->
+					<exclusion>
+						<artifactId>metrics-core</artifactId>
+						<groupId>io.dropwizard.metrics</groupId>
+					</exclusion>
+
+					<!-- Findbugs -->
+					<exclusion>
+						<artifactId>findbugs-annotations</artifactId>
+						<groupId>com.github.stephenc.findbugs</groupId>
+					</exclusion>
+
+					<!-- Google GSON -->
+					<exclusion>
+						<artifactId>gson</artifactId>
+						<groupId>com.google.code.gson</groupId>
+					</exclusion>
+
+					<!-- J2EE APIs -->
+					<exclusion>
+						<artifactId>javax.servlet-api</artifactId>
+						<groupId>javax.servlet</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>javax.el</artifactId>
+						<groupId>org.glassfish</groupId>
+					</exclusion>
+
+					<!-- Jackson JSON -->
+					<exclusion>
+						<artifactId>jackson-core-asl</artifactId>
+						<groupId>org.codehaus.jackson</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jackson-mapper-asl</artifactId>
+						<groupId>org.codehaus.jackson</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jackson-databind</artifactId>
+						<groupId>com.fasterxml.jackson.core</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jackson-jaxrs-json-provider</artifactId>
+						<groupId>com.fasterxml.jackson.jaxrs</groupId>
+					</exclusion>
+
+					<!-- JAXB API -->
+					<exclusion>
+						<artifactId>jaxb-api</artifactId>
+						<groupId>javax.xml.bind</groupId>
+					</exclusion>
+
+					<!-- JAX-RS API -->
+					<exclusion>
+						<artifactId>javax.ws.rs-api</artifactId>
+						<groupId>javax.ws.rs</groupId>
+					</exclusion>
+
+					<!-- JCraft JSch -->
+					<exclusion>
+						<artifactId>jsch</artifactId>
+						<groupId>com.jcraft</groupId>
+					</exclusion>
+
+					<!-- Jersey -->
+					<exclusion>
+						<artifactId>jersey-container-servlet-core</artifactId>
+						<groupId>org.glassfish.jersey.containers</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jersey-media-json-jackson1</artifactId>
+						<groupId>org.glassfish.jersey.media</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>javax.servlet.jsp</artifactId>
+						<groupId>org.glassfish.web</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jersey-server</artifactId>
+						<groupId>com.sun.jersey</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jersey-server</artifactId>
+						<groupId>org.glassfish.jersey.core</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jersey-json</artifactId>
+						<groupId>com.sun.jersey</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jersey-core</artifactId>
+						<groupId>com.sun.jersey</groupId>
+					</exclusion>
+
+					<!-- JetS3t -->
+					<exclusion>
+						<artifactId>jets3t</artifactId>
+						<groupId>net.java.dev.jets3t</groupId>
+					</exclusion>
+
+					<!-- Jetty -->
+					<exclusion>
+						<artifactId>jetty-server</artifactId>
+						<groupId>org.eclipse.jetty</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jetty-servlet</artifactId>
+						<groupId>org.eclipse.jetty</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jetty-util</artifactId>
+						<groupId>org.eclipse.jetty</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jetty-http</artifactId>
+						<groupId>org.eclipse.jetty</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jetty-jmx</artifactId>
+						<groupId>org.eclipse.jetty</groupId>
+					</exclusion>		
+					<exclusion>
+						<artifactId>jetty</artifactId>
+						<groupId>org.mortbay.jetty</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jetty-util</artifactId>
+						<groupId>org.mortbay.jetty</groupId>
+					</exclusion>
+
+					<!-- Junit -->
+					<exclusion>
+						<artifactId>junit</artifactId>
+						<groupId>junit</groupId>
+					</exclusion>
+					
+					<!-- JRuby -->
+					<exclusion>
+						<artifactId>joni</artifactId>
+						<groupId>org.jruby.joni</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>jcodings</artifactId>
+						<groupId>org.jruby.jcodings</groupId>
+					</exclusion>
+					
+					<!-- XMLEnc -->
+					<exclusion>
+						<artifactId>xmlenc</artifactId>
+						<groupId>xmlenc</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
